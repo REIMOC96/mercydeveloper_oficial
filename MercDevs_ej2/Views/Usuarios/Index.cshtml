@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MercDevs_ej2.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index Usuarios</h1>
+
+<p>
+    <a asp-action="Create">
+        <button type="button" class="btn btn-success ">Crear Usuario</button>
+    </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Correo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdUsuario"><button type="button" class="btn btn-primary">Editar</button></a>
+                    <a asp-action="Details" asp-route-id="@item.IdUsuario"><button type="button" class="btn btn-info">Detalles</button></a>
+                    <a asp-action="Delete" asp-route-id="@item.IdUsuario"><button type="button" class="btn btn-danger">Borrar</button></a>
+                </td>
+
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,109 @@
+﻿@model MercDevs_ej2.Models.Recepcionequipo
+
+@{
+    ViewData["Title"] = "Editar Recepción";
+}
+
+<h1>Editar Recepción</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group">
+                <label asp-for="IdCliente" class="control-label">Id Cliente</label>
+                <select asp-for="IdCliente" class="form-control" asp-items="ViewBag.IdCliente"></select>
+                <span asp-validation-for="IdCliente" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="IdServicio" class="control-label">Id Servicio</label>
+                <select asp-for="IdServicio" class="form-control" asp-items="ViewBag.IdServicio"></select>
+                <span asp-validation-for="IdServicio" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Fecha" class="control-label">Fecha</label>
+                <input asp-for="Fecha" class="form-control" />
+                <span asp-validation-for="Fecha" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TipoPc" class="control-label">Tipo PC</label>
+                <input asp-for="TipoPc" class="form-control" />
+                <span asp-validation-for="TipoPc" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Accesorio" class="control-label">Accesorios</label>
+                <input asp-for="Accesorio" class="form-control" />
+                <span asp-validation-for="Accesorio" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MarcaPc" class="control-label">Marca PC</label>
+                <input asp-for="MarcaPc" class="form-control" />
+                <span asp-validation-for="MarcaPc" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ModeloPc" class="control-label">Modelo PC</label>
+                <input asp-for="ModeloPc" class="form-control" />
+                <span asp-validation-for="ModeloPc" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Nserie" class="control-label">N° Serie</label>
+                <input asp-for="Nserie" class="form-control" />
+                <span asp-validation-for="Nserie" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CapacidadRam" class="control-label">Capacidad de RAM</label>
+                <input asp-for="CapacidadRam" class="form-control" />
+                <span asp-validation-for="CapacidadRam" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TipoAlmacenamiento" class="control-label">Tipo de Almacenamiento</label>
+                <input asp-for="TipoAlmacenamiento" class="form-control" />
+                <span asp-validation-for="TipoAlmacenamiento" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CapacidadAlmacenamiento" class="control-label">Capacidad de Almacenamiento</label>
+                <input asp-for="CapacidadAlmacenamiento" class="form-control" />
+                <span asp-validation-for="CapacidadAlmacenamiento" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TipoGpu" class="control-label">Tipo de GPU</label>
+                <input asp-for="TipoGpu" class="form-control" />
+                <span asp-validation-for="TipoGpu" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Grafico" class="control-label">Gráfico</label>
+                <input asp-for="Grafico" class="form-control" />
+                <span asp-validation-for="Grafico" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-warning" />
+            </div>
+        </form>
+    </div>
+</div>
+
+    <div>
+        <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+    </div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

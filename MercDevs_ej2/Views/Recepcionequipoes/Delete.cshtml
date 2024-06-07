@@ -1,0 +1,136 @@
+﻿@model MercDevs_ej2.Models.Recepcionequipo
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Borrar Recepcion de equipo</h1>
+
+<h3>¿estas seguro de que quieres eliminar esto?</h3>
+<div>
+
+    <hr />
+    <dl class="row ">
+        <dt class="col-sm-2">
+            Fecha:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+        <hr style="background-color:black" />
+        <dt class="col-sm-2">
+            Tipo de PC
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TipoPc)
+        </dd>
+        <hr style="background-color:black" />
+
+        <dt class="col-sm-2">
+            AccesoriosS
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Accesorio)
+        </dd>
+        <hr style="background-color:black" />
+
+
+        <dt class="col-sm-2">
+            Marca de Pc
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MarcaPc)
+        </dd>
+        <hr style="background-color:black" />
+
+
+        <dt class="col-sm-2">
+            modelo de Pc
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ModeloPc)
+        </dd>
+        <hr style="background-color:black" />
+
+
+        <dt class="col-sm-2">
+            N° Serie
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nserie)
+        </dd>
+        <hr style="background-color:black" />
+
+
+        <dt class="col-sm-2">
+            Capacidad de Ram
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CapacidadRam)
+        </dd>
+        <hr style="background-color:black" />
+
+
+        <dt class="col-sm-2">
+            Tipo almacenamiento
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TipoAlmacenamiento)
+        </dd>
+        <hr style="background-color:black" />
+
+
+        <dt class="col-sm-2">
+            Cap Almacenamiento
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CapacidadAlmacenamiento)
+        </dd>
+        <hr style="background-color:black" />
+
+
+        <dt class="col-sm-2">
+            Tipo Gpu
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TipoGpu)
+        </dd>
+        <hr style="background-color:black" />
+
+
+        <dt class="col-sm-2">
+            Graficos
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Grafico)
+        </dd>
+        <hr style="background-color:black" />
+
+
+        <dt class="col-sm-2">
+            Id cliente
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdClienteNavigation.IdCliente)
+        </dd>
+        <hr style="background-color:black" />
+
+
+        <dt class="col-sm-2">
+            Id servicio
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdServicioNavigation.IdServicio)
+        </dd>
+        <hr style="background-color:black" />
+
+
+    </dl>
+</div>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Borrar" class="btn btn-danger" /> 
+        <a asp-action="Index"><button class="btn btn-secondary">volver a la lista</button></a>
+    </form>
+</div>
