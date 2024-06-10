@@ -1,4 +1,4 @@
-# Sistema Oficial Mercy Developer
+lo# Sistema Oficial Mercy Developer
 
 Sistema funcional Mercy Developer para la generación de ficha tecnica en el área de soporte Técnico
 
@@ -95,7 +95,7 @@ Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones
 
 _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
 
-* **Reinaldo Ordoñez** - *Trabajo Inicial* - [Reinaldo GitHub](https://github.com/reinaldo)
+* **Reinaldo Ordoñez** - *Trabajo Inicial* - [Reinaldo GitHub](https://github.com/REIMOC96)
 * **Edgardo Cayo** - *Documentación* - [cayocft](https://github.com/cayocft)
 
 
