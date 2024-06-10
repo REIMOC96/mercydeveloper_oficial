@@ -6,7 +6,7 @@ Sistema funcional Mercy Developer para la generación de ficha tecnica en el ár
 
 _Las siguientes instrucciones les permitirá obtener una copia del proyecto para seguir con su desarrollo._
 
-Mira **Deployment** para conocer como desplegar el proyecto.
+Mira **Despliege 📦** para conocer como desplegar el proyecto.
 
 
 ### Pre-requisitos 📋
@@ -108,4 +108,27 @@ Este proyecto está bajo la Licencia _FREE_ - mira el archivo [LICENSE.md](LICEN
 * Comenta a otros sobre este proyecto 📢
 * Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
 * Da las gracias públicamente 🤓.
+
+
+
+## Actualizaciones Recientes 🚀🚀
+
+### Versión 1.1.0 (10-06-2024)
+- Se agregó la funcionalidad de Registrarse a la pagina.
+- Se agrego la funcionalidad de Login en la pagina.
+- Se agrego el bloqueo de usuarios no logeados en el sistma, obligando a registrarse.
+- Se agrego vista de Loggeo y Registraese.
+- Se agrego Funcion de Logout y se muestra en la navbar
+- Se Optmimizacionde codigo, se uso el ddbb context propio del proyecto para no ser redundante y mejorar rendimiento.
+
+### Detalles v 1.1.0
+- Se agregaron Validadores, en estado inhabilitado, lambda usado para los filtros pero falta ajustar detalles.
+- Se requiere de mejorar la visual del proyecto, emplear mas bootstrap y crear diseños propios.
+- Agregar Descripcion de servicios en una vista mas amigable.
+- Mejorar la recepcion de equipos para poder imprimir una orden de trabajo (O.T.)
+- Mejorar formato de la pagina Recepcion de equipo para hacerla mas parecida a una O.T.
+
+*----------------------------------------------------------------------------------------------------------*
+
+
 

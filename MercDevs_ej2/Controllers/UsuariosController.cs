@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MercDevs_ej2.Models;
+using System.Security.Cryptography;
+using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MercDevs_ej2.Controllers
 {
+    [Authorize]
+
     public class UsuariosController : Controller
     {
         private readonly MercydevsEjercicio2Context _context;
@@ -49,14 +49,16 @@ namespace MercDevs_ej2.Controllers
         }
 
         // POST: Usuarios/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdUsuario,Nombre,Apellido,Correo,Password")] Usuario usuario)
+        public async Task<IActionResult> Create([Bind("IdUsuario,Nombre,Apellido,Correo,Password")] Usuario usuario, string password)
         {
             if (ModelState.IsValid)
             {
+                // Calcular el hash de la contraseña
+                string passwordHash = HashPassword(password);
+                usuario.Password = passwordHash;
+
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -81,8 +83,6 @@ namespace MercDevs_ej2.Controllers
         }
 
         // POST: Usuarios/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdUsuario,Nombre,Apellido,Correo,Password")] Usuario usuario)
@@ -151,6 +151,21 @@ namespace MercDevs_ej2.Controllers
         private bool UsuarioExists(int id)
         {
             return _context.Usuarios.Any(e => e.IdUsuario == id);
+        }
+
+        // Método para calcular el hash de la contraseña
+        private string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < hashedBytes.Length; i++)
+                {
+                    builder.Append(hashedBytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
         }
     }
 }

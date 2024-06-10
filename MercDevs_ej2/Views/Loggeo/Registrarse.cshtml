@@ -1,0 +1,68 @@
+﻿@model MercDevs_ej2.ViewModel.UsuarioVM
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="row mt-5 justify-content-center mb-5">
+        <!-- Añadido el margen inferior -->
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header">
+                    Regístrate
+                </div>
+                <div class="card-body">
+                    <form asp-controller="Loggeo" asp-action="Registrarse" method="post">
+                        <div class="mb-3">
+                            <label for="Nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="Nombre" name="Nombre" required asp-for="Nombre" />
+                            <span asp-validation-for="Nombre" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Apellido" class="form-label">Apellido</label>
+                            <input type="text" class="form-control" id="Apellido" name="Apellido" required asp-for="Apellido" />
+                            <span asp-validation-for="Apellido" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Correo" class="form-label">Correo</label>
+                            <input type="email" class="form-control" id="Correo" name="Correo" required asp-for="Correo" />
+                            <span asp-validation-for="Correo" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="Password" name="Password" required asp-for="Password" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ConfPassword" class="form-label">Confirmar Contraseña</label>
+                            <input type="password" class="form-control" id="ConfPassword" name="ConfPassword" required asp-for="ConfPassword" />
+                            <span asp-validation-for="ConfPassword" class="text-danger"></span>
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                            <button class="btn btn-primary" type="submit">Registrarse</button>
+                        </div>
+
+                        @if (ViewData["Mensaje"] != null)
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                @ViewData["Mensaje"]
+                            </div>
+                        }
+                        <a asp-controller="Loggeo" asp-action="Login">¿Ya estás registrado?</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

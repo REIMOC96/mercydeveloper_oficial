@@ -6,9 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MercDevs_ej2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MercDevs_ej2.Controllers
 {
+    [Authorize]
+
     public class ServiciosController : Controller
     {
         private readonly MercydevsEjercicio2Context _context;

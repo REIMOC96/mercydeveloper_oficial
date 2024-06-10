@@ -1,8 +1,19 @@
-﻿@{
+﻿
+
+@using System.Security.Claims
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Bienvenido</h1>
-    <p>Requerimientos del laboraroio: Completado</p>
+    @if (User.Identity!.IsAuthenticated)
+    {
+        <h1 class="display-4">
+            bienvenido,
+            @User.Claims.Where(c => c.Type == ClaimTypes.Name).Select(c => c.Value).SingleOrDefault() 
+            inicio de sesion exitoso :D
+        </h1>
+        
+        }
+
 </div>
