@@ -148,7 +148,7 @@ Este proyecto está bajo la Licencia _FREE_ - mira el archivo [LICENSE.md](LICEN
 - Se agrego Funcion de Logout y se muestra en la navbar
 - Se Optmimizacionde codigo, se uso el ddbb context propio del proyecto para no ser redundante y mejorar rendimiento.
 
-### Detalles v 1.1.0
+### Detalles 1.1.0
 - Se agregaron Validadores, en estado inhabilitado, lambda usado para los filtros pero falta ajustar detalles.
 - Se requiere de mejorar la visual del proyecto, emplear mas bootstrap y crear diseños propios.
 - Agregar Descripcion de servicios en una vista mas amigable.
