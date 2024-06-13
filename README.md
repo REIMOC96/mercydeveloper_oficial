@@ -111,12 +111,39 @@ Este proyecto está bajo la Licencia _FREE_ - mira el archivo [LICENSE.md](LICEN
 
 
 
+
+
 ## Actualizaciones Recientes 🚀🚀
+
+### Version 1.1.1 (13-06-2024)
+- Se agrego contenido al index de home segun requerimientos de la pauta
+- Se omitio la parte del hashing, ya que fue completada en la Version anterior (10-06-2024)
+- Se agrego la columna de Estado en la BBDD y a nivel codigo usando migraciones.
+- Se agrego mensaje de no hay nada para mostrar en el index.
+- Se agrego mensaje de bienvenida en la navbar
+- Se corrigio la posicion de cerrar sesion motivo, la clickeaba sin querer
+- Se actualizo el DB context de manera manual, se agrego el valor de estado a la entidad de recepcion equipos.
+- Se actualizo el modelo de recepcion equipos para incluir la nueva columna de estado.
+- Se mejoro la posicion de los textos para hacer la pagina mas legible.
+
+### Observaciónes 1.1.1
+
+- Tuve pequeños problemas para ajustar el controlador, resuelto.
+- Originalmente no me mostraba las ids de los clientes y del servicio, resuelto
+- Ojo con tocar el controlador de recepciones, ya que sin querer en un punto perdi la funcionalidad de crear
+  recepciones ya que ingrese mal el llamado a un valor, resuelto.
+- Validadores siguen desactivados, ya que no son necesarios por ahora, se requiere de ajustarlos en los modelos, 
+  algunos ya los tienen construidos pero no esta aplicados y tampoco ajustados a parametros mas reales.
+
+## *----------------------------------------------------------------------------------------------------------*
+
+
+# old fixes🛠️🛠️
 
 ### Versión 1.1.0 (10-06-2024)
 - Se agregó la funcionalidad de Registrarse a la pagina.
 - Se agrego la funcionalidad de Login en la pagina.
-- Se agrego el bloqueo de usuarios no logeados en el sistma, obligando a registrarse.
+- Se agrego el bloqueo de usuarios no logeados en el sistma, obligando a registrarse y logear.
 - Se agrego vista de Loggeo y Registraese.
 - Se agrego Funcion de Logout y se muestra en la navbar
 - Se Optmimizacionde codigo, se uso el ddbb context propio del proyecto para no ser redundante y mejorar rendimiento.
@@ -127,9 +154,6 @@ Este proyecto está bajo la Licencia _FREE_ - mira el archivo [LICENSE.md](LICEN
 - Agregar Descripcion de servicios en una vista mas amigable.
 - Mejorar la recepcion de equipos para poder imprimir una orden de trabajo (O.T.)
 - Mejorar formato de la pagina Recepcion de equipo para hacerla mas parecida a una O.T.
-
-*----------------------------------------------------------------------------------------------------------*
-
 
 
    

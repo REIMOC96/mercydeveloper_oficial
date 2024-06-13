@@ -42,8 +42,12 @@
             <th>
                 Tipo_Gpu
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.Grafico)
+            </th>
+            <th>
+                Estado
             </th>
             <th>
                Id Cliente
@@ -89,6 +93,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Grafico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IdClienteNavigation.IdCliente)

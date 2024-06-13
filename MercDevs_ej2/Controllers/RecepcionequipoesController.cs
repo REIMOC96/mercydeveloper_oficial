@@ -1,15 +1,14 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MercDevs_ej2.Models;
-using Microsoft.CodeAnalysis;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 
 namespace MercDevs_ej2.Controllers
 {
     [Authorize]
-
     public class RecepcionequipoesController : Controller
     {
         private readonly MercydevsEjercicio2Context _context;
@@ -22,8 +21,12 @@ namespace MercDevs_ej2.Controllers
         // GET: Recepcionequipoes
         public async Task<IActionResult> Index()
         {
-            var mercydevsEjercicio2Context = _context.Recepcionequipos.Include(r => r.IdClienteNavigation).Include(r => r.IdServicioNavigation);
-            return View(await mercydevsEjercicio2Context.ToListAsync());
+            var recepcionesEquipos = await _context.Recepcionequipos
+                .Include(r => r.IdClienteNavigation)
+                .Include(r => r.IdServicioNavigation)
+                .ToListAsync();
+
+            return View(recepcionesEquipos);
         }
 
         // GET: Recepcionequipoes/Details/5
@@ -38,6 +41,7 @@ namespace MercDevs_ej2.Controllers
                 .Include(r => r.IdClienteNavigation)
                 .Include(r => r.IdServicioNavigation)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (recepcionequipo == null)
             {
                 return NotFound();
@@ -55,16 +59,7 @@ namespace MercDevs_ej2.Controllers
         }
 
         // POST: Recepcionequipoes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-
-
-
-
-
-        public async Task<IActionResult> Create([Bind("Id,IdCliente,IdServicio,Fecha,TipoPc,Accesorio,MarcaPc,ModeloPc,Nserie,CapacidadRam,TipoAlmacenamiento,CapacidadAlmacenamiento,TipoGpu,Grafico")] Recepcionequipo recepcionequipo)
+        [HttpPost]       public async Task<IActionResult> Create([Bind("Id,IdCliente,IdServicio,Fecha,TipoPc,Accesorio,MarcaPc,ModeloPc,Nserie,CapacidadRam,TipoAlmacenamiento,CapacidadAlmacenamiento,TipoGpu,Grafico, Estado")] Recepcionequipo recepcionequipo)
         {
             // primero quise hacer un if para validar los dato propios de la tabla, pero era muy largo
             //le pregunte a gpt-san como podia factorizar mejor el codigo y me explico que podia hacer un diccionario y recorrerlo
@@ -84,7 +79,8 @@ namespace MercDevs_ej2.Controllers
         { nameof(recepcionequipo.TipoAlmacenamiento), recepcionequipo.TipoAlmacenamiento },
         { nameof(recepcionequipo.CapacidadAlmacenamiento), recepcionequipo.CapacidadAlmacenamiento },
         { nameof(recepcionequipo.TipoGpu), recepcionequipo.TipoGpu },
-        { nameof(recepcionequipo.Grafico), recepcionequipo.Grafico }
+        { nameof(recepcionequipo.Grafico), recepcionequipo.Grafico },
+        {nameof(recepcionequipo.Estado), recepcionequipo.Estado },
     };
 
             // Verificar si alguna de las propiedades es nula o en el caso de int, si es igual a 0
@@ -107,10 +103,6 @@ namespace MercDevs_ej2.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
-
-
-
         // GET: Recepcionequipoes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -130,25 +122,21 @@ namespace MercDevs_ej2.Controllers
         }
 
         // POST: Recepcionequipoes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,IdCliente,IdServicio,Fecha,TipoPc,Accesorio,MarcaPc,ModeloPc," +
-"Nserie,CapacidadRam,TipoAlmacenamiento,CapacidadAlmacenamiento,TipoGpu,Grafico")] Recepcionequipo recepcionequipo)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,IdCliente,IdServicio,Fecha,TipoPc,Accesorio,MarcaPc,ModeloPc,Nserie,CapacidadRam,TipoAlmacenamiento,CapacidadAlmacenamiento,TipoGpu,Grafico,Estado")] Recepcionequipo recepcionequipo)
         {
             if (id != recepcionequipo.Id)
             {
                 return NotFound();
             }
 
-            if (recepcionequipo.IdCliente != 0) // Verificar si el modelo es válido
+            if (ModelState.IsValid)
             {
                 try
                 {
                     _context.Update(recepcionequipo);
                     await _context.SaveChangesAsync();
-                    return RedirectToAction("Index");
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -158,37 +146,15 @@ namespace MercDevs_ej2.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError(string.Empty, "No se pudieron guardar los cambios. El registro fue actualizado o eliminado por otro usuario.");
+                        throw;
                     }
                 }
-                catch (Exception ex)
-                {
-                    // Imprimir el mensaje de error en la consola
-                    Console.WriteLine($"Error al guardar en la base de datos: {ex.Message}");
-
-                    // También puedes imprimir detalles adicionales si los necesitas
-                    Console.WriteLine($"Detalles adicionales: {ex.InnerException}");
-
-                    ModelState.AddModelError(string.Empty, $"Ocurrió un error: {ex.Message}");
-                }
+                return RedirectToAction(nameof(Index));
             }
-
-            // Si el modelo no es válido o si ocurre un error, vuelve a cargar los datos necesarios para mostrar la vista de edición
             ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente", recepcionequipo.IdCliente);
             ViewData["IdServicio"] = new SelectList(_context.Servicios, "IdServicio", "IdServicio", recepcionequipo.IdServicio);
             return View(recepcionequipo);
         }
-
-
-        private bool RecepcionequipoExists(int id)
-        {
-            return _context.Recepcionequipos.Any(e => e.Id == id);
-        }
-
-
-
-
-
 
         // GET: Recepcionequipoes/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -202,6 +168,7 @@ namespace MercDevs_ej2.Controllers
                 .Include(r => r.IdClienteNavigation)
                 .Include(r => r.IdServicioNavigation)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (recepcionequipo == null)
             {
                 return NotFound();
@@ -219,12 +186,14 @@ namespace MercDevs_ej2.Controllers
             if (recepcionequipo != null)
             {
                 _context.Recepcionequipos.Remove(recepcionequipo);
+                await _context.SaveChangesAsync();
             }
-
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-
+        private bool RecepcionequipoExists(int id)
+        {
+            return _context.Recepcionequipos.Any(e => e.Id == id);
+        }
     }
 }

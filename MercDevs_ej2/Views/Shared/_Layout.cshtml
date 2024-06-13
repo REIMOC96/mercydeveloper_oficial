@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims;
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -55,11 +57,24 @@
                         </li>
                         <div class="vr"></div>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="home" asp-action="Salir">Cerrar Sesion</a>
-                        </li>
-                        <div class="vr"></div>
 
+                            @if (User.Identity!.IsAuthenticated){
+                             <li class="nav-link">
+                                 <p class="nav-item text-dark">
+                                 Bienvenido,
+                                @User.Claims.Where(c => c.Type == ClaimTypes.Name).Select(c => c.Value).SingleOrDefault()
+                                ¡Inicio de sesión exitoso! 😊
+                                </p>
+                            </li>
+                            }
+  
+
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <div class="vr"></div>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Salir">Cerrar Sesion</a>
+                        </li>
                     </ul>
                 </div>
             </div>

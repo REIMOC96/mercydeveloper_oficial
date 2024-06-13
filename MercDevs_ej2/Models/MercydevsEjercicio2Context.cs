@@ -7,6 +7,8 @@ namespace MercDevs_ej2.Models;
 
 public partial class MercydevsEjercicio2Context : DbContext
 {
+    internal readonly IEnumerable<object> Recepcionequipo;
+
     public MercydevsEjercicio2Context()
     {
     }
@@ -105,6 +107,7 @@ public partial class MercydevsEjercicio2Context : DbContext
             entity.Property(e => e.TipoAlmacenamiento).HasColumnType("int(11)");
             entity.Property(e => e.TipoGpu).HasColumnType("int(11)");
             entity.Property(e => e.TipoPc).HasColumnType("int(11)");
+            entity.Property(e => e.Estado).HasColumnType("int(11)"); //entidad nueva, ingresada manualmente
 
             entity.HasOne(d => d.IdClienteNavigation).WithMany(p => p.Recepcionequipos)
                 .HasForeignKey(d => d.IdCliente)
