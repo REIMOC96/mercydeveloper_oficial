@@ -28,6 +28,13 @@ namespace MercDevs_ej2.Controllers
 
             return View(recepcionesEquipos);
         }
+        public async Task<IActionResult> RecepcionPorId(int? id)
+        {
+            var equipos = _context.Recepcionequipos
+                                        .Where(u => u.IdCliente == id).
+                                        Include(r => r.IdServicioNavigation);
+            return View(await equipos.ToListAsync());
+        }
 
         // GET: Recepcionequipoes/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -88,7 +95,7 @@ namespace MercDevs_ej2.Controllers
             //o quiza lo mejor sea agregar la fecha desde el sistema del pc, seria lo mas acertado 
             foreach (var dato in tablaDato)
             {
-                if (dato.Value == null || (dato.Value is int intValue && intValue == 0))
+                if (dato.Value == null)
                 {
                     // Si cualquier valor no cumple con los requisitos, se configura ViewData y se retorna la vista
                     ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente", recepcionequipo.IdCliente);
@@ -131,7 +138,7 @@ namespace MercDevs_ej2.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (id != 0)
             {
                 try
                 {
