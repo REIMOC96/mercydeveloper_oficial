@@ -130,8 +130,6 @@ Este proyecto está bajo la Licencia _FREE_ - mira el archivo [LICENSE.md](LICEN
 * Agrege los requerimientos de la prueba que nos dieron el dia de hoy, porque quiero mantener el proyecto 
   lo mas completo posible, asique mantendre el proyecto lo mas actualizado que pueda.
 
-  *
-
 ## *----------------------------------------------------------------------------------------------------------*
 
 
