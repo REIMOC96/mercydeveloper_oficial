@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MercDevs_ej2.Models.Descripcionservicio>
+
+@{
+    ViewData["Title"] = "descServ";
+}
+
+<h1>descServ</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicioIdServicioNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServicioIdServicioNavigation.IdServicio)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdDescServ">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdDescServ">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdDescServ">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

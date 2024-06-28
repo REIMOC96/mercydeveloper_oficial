@@ -27,6 +27,7 @@
                         <th>GPU</th>
                         <th>Gráfico</th>
                         <th>Estado</th>
+                        <th>Completar Recepcion</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,7 +47,11 @@
                             <td>@equipo.TipoGpu</td>
                             <td>@equipo.Grafico</td>
                             <td>@equipo.Estado</td>
+                            <td>
+                            <a asp-controller="Recepcionequipoes" asp-action="Completado" asp-route-id="@equipo.Id"><Button class="btn btn-warning">completado</Button></a>
+                            </td>
                         </tr>
+
                     }
                 </tbody>
             </table>

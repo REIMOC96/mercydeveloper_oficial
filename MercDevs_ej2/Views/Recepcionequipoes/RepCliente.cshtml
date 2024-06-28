@@ -1,0 +1,111 @@
+﻿@model IEnumerable<MercDevs_ej2.Models.Recepcionequipo>
+
+@{
+    ViewData["Title"] = "RepCliente";
+}
+
+<h1>RepCliente</h1>
+
+<p>
+    <a asp-action="Create"><button class="btn btn-success">Crear recepcion</button></a>
+    <a asp-action="ficha"><button class="btn btn-warning">Ir a ficha</button></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoPc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Accesorio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MarcaPc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModeloPc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nserie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CapacidadRam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoAlmacenamiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CapacidadAlmacenamiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoGpu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grafico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdClienteNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdServicioNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoPc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accesorio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MarcaPc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModeloPc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nserie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CapacidadRam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoAlmacenamiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CapacidadAlmacenamiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoGpu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grafico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdClienteNavigation.IdCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdServicioNavigation.IdServicio)
+            </td>
+           
+            
+        </tr>
+}
+    </tbody>
+</table>

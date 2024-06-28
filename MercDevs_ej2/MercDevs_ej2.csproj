@@ -20,16 +20,4 @@
     <Folder Include="wwwroot\srcImg\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Views\Recepcionequipoes\RecepcionPorId.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Views\Recepcionequipoes\RecepcionPorId.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Views\Recepcionequipoes\RecepcionPorId.cshtml" />
-  </ItemGroup>
-
 </Project>

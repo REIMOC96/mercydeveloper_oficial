@@ -115,26 +115,6 @@ Este proyecto está bajo la Licencia _FREE_ - mira el archivo [LICENSE.md](LICEN
 
 ## Actualizaciones Recientes 🚀🚀
 
-### Version 1.1.2 (14-06-2024)
-
-- Se agrego el boton a la vista de cliente.
-- Se agrego funcion listar datos segun id del cliente.
-- Se agrego una vista para listar las recepciones de equipo segun el cliente.
-- Se hizo mas pequeña la fuente de la pagina para ver mejor el contenido en general.
-
-### observaciones
-- El generar consultas a la bbdd es bastante facil usando el sistema de .net y entity framework, funcionan como metodos, simplemnte los llamo y pienso como si fuera una consulta SQL.
-- La funcion de listar esta en el controlador de recepcion equipos.
-
-### nota:
-* Agrege los requerimientos de la prueba que nos dieron el dia de hoy, porque quiero mantener el proyecto 
-  lo mas completo posible, asique mantendre el proyecto lo mas actualizado que pueda.
-
-## *----------------------------------------------------------------------------------------------------------*
-
-
-## old fixes🛠️🛠️
-
 ### Version 1.1.1 (13-06-2024)
 - Se agrego contenido al index de home segun requerimientos de la pauta
 - Se omitio la parte del hashing, ya que fue completada en la Version anterior (10-06-2024)
@@ -154,6 +134,11 @@ Este proyecto está bajo la Licencia _FREE_ - mira el archivo [LICENSE.md](LICEN
   recepciones ya que ingrese mal el llamado a un valor, resuelto.
 - Validadores siguen desactivados, ya que no son necesarios por ahora, se requiere de ajustarlos en los modelos, 
   algunos ya los tienen construidos pero no esta aplicados y tampoco ajustados a parametros mas reales.
+
+## *----------------------------------------------------------------------------------------------------------*
+
+
+# old fixes🛠️🛠️
 
 ### Versión 1.1.0 (10-06-2024)
 - Se agregó la funcionalidad de Registrarse a la pagina.

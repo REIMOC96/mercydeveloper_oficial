@@ -33,7 +33,7 @@ public partial class Recepcionequipo
 
     public string? Grafico { get; set; }
 
-    public int Estado { get; set; } // Nuevo campo Estado
+    public int? Estado { get; set; } // Nuevo campo Estado
 
     public virtual Cliente IdClienteNavigation { get; set; } = null!;
 

@@ -58,7 +58,8 @@
                     <a asp-action="Edit" asp-route-id="@item.IdCliente"><button type="button" class="btn btn-primary">Editar</button></a>
                     <a asp-action="Details" asp-route-id="@item.IdCliente"><button type="button" class="btn btn-info">Detalles</button></a>
                     <a asp-action="Delete" asp-route-id="@item.IdCliente"><button type="button" class="btn btn-danger">Borrar</button></a>
-                    <a asp-controller="Recepcionequipoes" asp-action="RecepcionPorId" asp-route-id="@item.IdCliente"><button type="button" class="btn btn-warning">ver por cliente</button></a>
+                    <a asp-controller="Recepcionequipoes" asp-action="RepCliente" asp-route-id="@item.IdCliente"><button type="button" class="btn btn-info">recepciones cliente</button></a>
+                    
                 </td>
         </tr>
 }

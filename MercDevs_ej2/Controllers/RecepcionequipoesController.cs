@@ -28,13 +28,6 @@ namespace MercDevs_ej2.Controllers
 
             return View(recepcionesEquipos);
         }
-        public async Task<IActionResult> RecepcionPorId(int? id)
-        {
-            var equipos = _context.Recepcionequipos
-                                        .Where(u => u.IdCliente == id).
-                                        Include(r => r.IdServicioNavigation);
-            return View(await equipos.ToListAsync());
-        }
 
         // GET: Recepcionequipoes/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -137,8 +130,8 @@ namespace MercDevs_ej2.Controllers
             {
                 return NotFound();
             }
-
-            if (id != 0)
+             
+            if (ModelState.IsValid)
             {
                 try
                 {
@@ -198,9 +191,50 @@ namespace MercDevs_ej2.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize]
+
+        //POST: actualizar Estado
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult>Completado(int? id)
+        {
+            if (id == 0)
+            {
+                return NotFound();
+            }
+
+            var recepcionequipo = await _context.Recepcionequipos.FindAsync(id);
+            if (recepcionequipo == null)
+            {
+                return NotFound();
+            }
+
+            
+                recepcionequipo.Estado = 0;
+                _context.Update(recepcionequipo);
+                await _context.SaveChangesAsync();
+          
+            return RedirectToAction("Index", "Home");
+        }
+
+        //funcion buscar recepcion por cliente 
+        public async Task<IActionResult>RepCliente(int id)
+           
+        {
+             var equipos = await _context.Recepcionequipos
+                                        .Where(e => e.IdCliente  == id)
+                                        .Include(e => e.IdClienteNavigation)
+                                        .Include(e => e.IdServicioNavigation)
+                                        .ToListAsync();
+            return View(equipos);
+        }
+
         private bool RecepcionequipoExists(int id)
         {
             return _context.Recepcionequipos.Any(e => e.Id == id);
+
         }
-    }
+
+
+    }   
 }
