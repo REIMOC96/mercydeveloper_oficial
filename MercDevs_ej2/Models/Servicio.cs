@@ -9,11 +9,11 @@ public partial class Servicio
 
     public string Nombre { get; set; } = null!;
 
-    public int Precio { get; set; }
+    public int? Precio { get; set; }
 
     public string? Sku { get; set; }
 
-    public int UsuarioIdUsuario { get; set; }
+    public int IdUsuario { get; set; }
 
     public virtual ICollection<Descripcionservicio> Descripcionservicios { get; set; } = new List<Descripcionservicio>();
 

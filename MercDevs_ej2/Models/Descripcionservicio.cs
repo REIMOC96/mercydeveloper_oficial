@@ -9,7 +9,7 @@ public partial class Descripcionservicio
 
     public string Nombre { get; set; } = null!;
 
-    public int ServicioIdServicio { get; set; }
+    public int IdServicio { get; set; }
 
     public virtual Servicio ServicioIdServicioNavigation { get; set; } = null!;
 }

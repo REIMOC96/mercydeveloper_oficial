@@ -191,32 +191,6 @@ namespace MercDevs_ej2.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [Authorize]
-
-        //POST: actualizar Estado
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult>Completado(int? id)
-        {
-            if (id == 0)
-            {
-                return NotFound();
-            }
-
-            var recepcionequipo = await _context.Recepcionequipos.FindAsync(id);
-            if (recepcionequipo == null)
-            {
-                return NotFound();
-            }
-
-            
-                recepcionequipo.Estado = 0;
-                _context.Update(recepcionequipo);
-                await _context.SaveChangesAsync();
-          
-            return RedirectToAction("Index", "Home");
-        }
-
         //funcion buscar recepcion por cliente 
         public async Task<IActionResult>RepCliente(int id)
            
@@ -229,6 +203,75 @@ namespace MercDevs_ej2.Controllers
             return View(equipos);
         }
 
+        // GET: Recepcionequipoes/completado/
+
+        // funcion para actualizar el estado, lo haremos en dos partes, una confirmacion y una ejecucion
+
+        //esta redirecciona a una confirmacion de lo que se va a ejecutar
+        public async Task<IActionResult> Completado(int id) {
+
+            {
+                if (id == 0)
+                {
+                    return NotFound();
+                }
+
+                var recepcionequipo = await _context.Recepcionequipos
+                    .Include(r => r.IdClienteNavigation)
+                    .Include(r => r.IdServicioNavigation)
+                    .FirstOrDefaultAsync(m => m.Id == id);
+
+                if (recepcionequipo == null)
+                {
+                    return NotFound();
+                }
+
+                return View(recepcionequipo);
+            }
+
+
+
+        }
+        
+        // esta es la funcion de actualizar el valor ya una vez confirmado
+        // GET: Recepcionequipoes/Confirmado/5
+        public async Task<IActionResult> Confirmado(int id)
+        {
+            if (id == 0)
+            {
+                return NotFound();
+            }
+
+            var recepcionequipo = await _context.Recepcionequipos.FindAsync(id);
+            if (recepcionequipo == null)
+            {
+                return NotFound();
+            }
+
+            recepcionequipo.Estado = 0;
+
+            try
+            {
+                _context.Recepcionequipos.Update(recepcionequipo);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!RecepcionequipoExists(recepcionequipo.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return RedirectToAction("Index","Home");
+        }
+
+
+        //se recomienda manentener esta funcion al final
         private bool RecepcionequipoExists(int id)
         {
             return _context.Recepcionequipos.Any(e => e.Id == id);

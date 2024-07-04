@@ -2,12 +2,11 @@
 
 @{
     ViewData["Title"] = "Edit";
-    Layout = "~/Views/Recepcionequipoes/Index.cshtml";
 }
 
-<h1>Edit</h1>
+<h1>Editar Descripcion de Servicio</h1>
 
-<h4>Descripcionservicio</h4>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -20,19 +19,19 @@
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ServicioIdServicio" class="control-label"></label>
-                <select asp-for="ServicioIdServicio" class="form-control" asp-items="ViewBag.ServicioIdServicio"></select>
-                <span asp-validation-for="ServicioIdServicio" class="text-danger"></span>
+                Id de servicio
+                <select asp-for="IdServicio" class="form-control" asp-items="ViewBag.ServicioIdServicio"></select>
+                <span asp-validation-for="IdServicio" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Guardar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index"><button class="btn btn-success" >Volver a lista</button></a>
 </div>
 
 @section Scripts {

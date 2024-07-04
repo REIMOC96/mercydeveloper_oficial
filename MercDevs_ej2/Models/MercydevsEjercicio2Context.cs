@@ -63,18 +63,18 @@ public partial class MercydevsEjercicio2Context : DbContext
 
             entity.ToTable("descripcionservicio");
 
-            entity.HasIndex(e => e.ServicioIdServicio, "fk_DescripcionServicio_Servicio1_idx");
+            entity.HasIndex(e => e.IdServicio, "fk_DescripcionServicio_Servicio1_idx");
 
             entity.Property(e => e.IdDescServ)
                 .HasColumnType("int(11)")
                 .HasColumnName("idDescServ");
             entity.Property(e => e.Nombre).HasMaxLength(45);
-            entity.Property(e => e.ServicioIdServicio)
+            entity.Property(e => e.IdServicio)
                 .HasColumnType("int(11)")
-                .HasColumnName("Servicio_idServicio");
+                .HasColumnName("idServicio");
 
             entity.HasOne(d => d.ServicioIdServicioNavigation).WithMany(p => p.Descripcionservicios)
-                .HasForeignKey(d => d.ServicioIdServicio)
+                .HasForeignKey(d => d.IdServicio)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_DescripcionServicio_Servicio1");
         });
@@ -107,7 +107,7 @@ public partial class MercydevsEjercicio2Context : DbContext
             entity.Property(e => e.TipoAlmacenamiento).HasColumnType("int(11)");
             entity.Property(e => e.TipoGpu).HasColumnType("int(11)");
             entity.Property(e => e.TipoPc).HasColumnType("int(11)");
-            entity.Property(e => e.Estado).HasColumnType("int(11)"); //entidad nueva, ingresada manualmente
+            entity.Property(e => e.Estado).HasColumnType("int(11)"); //propiedad nueva, ingresada manualmente
 
             entity.HasOne(d => d.IdClienteNavigation).WithMany(p => p.Recepcionequipos)
                 .HasForeignKey(d => d.IdCliente)
@@ -126,7 +126,7 @@ public partial class MercydevsEjercicio2Context : DbContext
 
             entity.ToTable("servicio");
 
-            entity.HasIndex(e => e.UsuarioIdUsuario, "fk_Servicio_Usuario_idx");
+            entity.HasIndex(e => e.IdUsuario, "fk_Servicio_Usuario_idx");
 
             entity.Property(e => e.IdServicio)
                 .HasColumnType("int(11)")
@@ -134,12 +134,12 @@ public partial class MercydevsEjercicio2Context : DbContext
             entity.Property(e => e.Nombre).HasMaxLength(45);
             entity.Property(e => e.Precio).HasColumnType("int(11)");
             entity.Property(e => e.Sku).HasMaxLength(45);
-            entity.Property(e => e.UsuarioIdUsuario)
+            entity.Property(e => e.IdUsuario)
                 .HasColumnType("int(11)")
-                .HasColumnName("Usuario_idUsuario");
+                .HasColumnName("idUsuario");
 
             entity.HasOne(d => d.UsuarioIdUsuarioNavigation).WithMany(p => p.Servicios)
-                .HasForeignKey(d => d.UsuarioIdUsuario)
+                .HasForeignKey(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_Servicio_Usuario");
         });

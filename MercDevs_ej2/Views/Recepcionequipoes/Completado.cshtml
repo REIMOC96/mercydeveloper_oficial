@@ -1,0 +1,103 @@
+﻿@model MercDevs_ej2.Models.Recepcionequipo
+
+@{
+    ViewData["Title"] = "Completado";
+}
+
+<h1>¿Estas seguro de que quieres marcar esta recepcion como completada?</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+        <dt class = "col-sm-2">
+            Tipo de PC
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TipoPc)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Accesorio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Accesorio)
+        </dd>
+        <dt class = "col-sm-2">
+            Marca Pc
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MarcaPc)
+        </dd>
+        <dt class = "col-sm-2">
+            Modelo De Pc
+        </dt>
+        <dd class = "col-sm-10">
+             @Html.DisplayFor(model => model.ModeloPc)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nserie)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nserie)
+        </dd>
+        <dt class = "col-sm-2">
+            Capacidad De Ram
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CapacidadRam)
+        </dd>
+        <dt class = "col-sm-2">
+            Tipo De Almacenamiento
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TipoAlmacenamiento)
+        </dd>
+        <dt class = "col-sm-2">
+            Capacidad Almacenamiento
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CapacidadAlmacenamiento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TipoGpu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TipoGpu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Grafico)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Grafico)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+        <dt class = "col-sm-2">
+            Id Cliente
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdClienteNavigation.IdCliente)
+        </dd>
+        <dt class = "col-sm-2">
+            Id servicio
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdServicioNavigation.IdServicio)
+        </dd>
+    </dl>
+    
+    <form asp-action="Confirmado">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Actualizar" class="btn btn-danger" />
+        <a asp-action="Index"><button class="btn btn-secondary">volver a la lista</button></a>
+    </form>
+</div>

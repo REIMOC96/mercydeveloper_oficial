@@ -114,6 +114,26 @@ Este proyecto está bajo la Licencia _FREE_ - mira el archivo [LICENSE.md](LICEN
 
 
 ## Actualizaciones Recientes 🚀🚀
+### Version 1.1.2 (14-07-2024)
+- Se arreglaron muuuchos bugs
+- Se agrego un boton de completar la recepcion que atualiza el estado a 0
+- se arreglaron todas las funciones, poner mas ojo
+- se agrego las descripciones de servicios por servicio.
+
+
+### observaciones 1.1.2
+- se requiere pasar a la fase 4 del desarrollo durante el fin de semana o durante los proximos dias
+- se agregara un boton llamdo ficha tecnica, sera la construccion de un controlador usando mas de un modelo,
+  la idea es poder llamar los datos y los registros de toda la recepcion de equipo y  mostrar los respectivos datos de cada tabla,
+  osea el nombre de clietne el nombre de cliente, datos del pc, las descripciones de los servicios etc (basicamente toda la BBDD)
+  Estado actual en la Fase 4 de desarrollo por empezar.
+
+- ver documento U3 - L1 classroom : https://classroom.google.com/u/2/c/Njc4ODQ0NzkzOTAx/a/Njk3MjI5MTQyMTY4/details 
+
+## *----------------------------------------------------------------------------------------------------------*
+
+
+# old fixes🛠️🛠️
 
 ### Version 1.1.1 (13-06-2024)
 - Se agrego contenido al index de home segun requerimientos de la pauta
@@ -135,10 +155,6 @@ Este proyecto está bajo la Licencia _FREE_ - mira el archivo [LICENSE.md](LICEN
 - Validadores siguen desactivados, ya que no son necesarios por ahora, se requiere de ajustarlos en los modelos, 
   algunos ya los tienen construidos pero no esta aplicados y tampoco ajustados a parametros mas reales.
 
-## *----------------------------------------------------------------------------------------------------------*
-
-
-# old fixes🛠️🛠️
 
 ### Versión 1.1.0 (10-06-2024)
 - Se agregó la funcionalidad de Registrarse a la pagina.

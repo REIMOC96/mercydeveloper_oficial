@@ -56,15 +56,27 @@ namespace MercDevs_ej2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdDescServ,Nombre,ServicioIdServicio")] Descripcionservicio descripcionservicio)
+        //cambie el if de la funcion create para que registre correctamente, la idea es que trate de registrar
+        // se agrego try y catch dentro del if, para tener mejor control de errores
+        public async Task<IActionResult> Create([Bind("IdDescServ,Nombre,IdServicio")] Descripcionservicio descripcionservicio)
         {
-            if (descripcionservicio.Nombre == null!)
+            if (descripcionservicio.IdServicio != 0)
             {
-                _context.Add(descripcionservicio);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                try
+                {
+
+                    _context.Add(descripcionservicio);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+
+                }
+                catch
+                {
+                    Console.WriteLine(Console.Error);
+                }
             }
-            ViewData["ServicioIdServicio"] = new SelectList(_context.Servicios, "IdServicio", "IdServicio", descripcionservicio.ServicioIdServicio);
+
+                ViewData["ServicioIdServicio"] = new SelectList(_context.Servicios, "IdServicio", "IdServicio", descripcionservicio.IdServicio);
             return View(descripcionservicio);
         }
 
@@ -81,7 +93,7 @@ namespace MercDevs_ej2.Controllers
             {
                 return NotFound();
             }
-            ViewData["ServicioIdServicio"] = new SelectList(_context.Servicios, "IdServicio", "IdServicio", descripcionservicio.ServicioIdServicio);
+            ViewData["ServicioIdServicio"] = new SelectList(_context.Servicios, "IdServicio", "IdServicio", descripcionservicio.IdServicio);
             return View(descripcionservicio);
         }
 
@@ -97,7 +109,7 @@ namespace MercDevs_ej2.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (descripcionservicio.IdDescServ == id)
             {
                 try
                 {
@@ -117,7 +129,7 @@ namespace MercDevs_ej2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ServicioIdServicio"] = new SelectList(_context.Servicios, "IdServicio", "IdServicio", descripcionservicio.ServicioIdServicio);
+            ViewData["ServicioIdServicio"] = new SelectList(_context.Servicios, "IdServicio", "IdServicio", descripcionservicio.IdServicio);
             return View(descripcionservicio);
         }
 
@@ -154,12 +166,11 @@ namespace MercDevs_ej2.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        public async Task<IActionResult> descServ(int id)
+        public async Task<IActionResult> descServ(int id, Descripcionservicio descripcionservicio)
 
         {
             var desc = await _context.Descripcionservicios
-                                       .Where(e => e.ServicioIdServicio == id)
-                                       .Include(e => e.ServicioIdServicioNavigation)
+                                       .Where(e => e.IdServicio == id)
                                        .ToListAsync();
             Console.WriteLine(desc);
             return View(desc);

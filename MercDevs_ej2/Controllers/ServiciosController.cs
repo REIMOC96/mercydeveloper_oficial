@@ -24,9 +24,9 @@ namespace MercDevs_ej2.Controllers
         // GET: Servicios
         public async Task<IActionResult> Index()
         {
-            var mercydevsEjercicio2Context = _context.Servicios.Include(s => s.UsuarioIdUsuarioNavigation);
-            return View(await mercydevsEjercicio2Context.ToListAsync());
+            return View(await _context.Servicios.ToListAsync());
         }
+
 
         // GET: Servicios/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -59,7 +59,7 @@ namespace MercDevs_ej2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdServicio,Nombre,Precio,Sku,UsuarioIdUsuario")] Servicio servicio)
+        public async Task<IActionResult> Create([Bind("IdServicio,Nombre,Precio,Sku,IdUsuario")] Servicio servicio)
         {
             if (servicio.Nombre !=null && servicio.Precio !=0)
             {
@@ -67,8 +67,8 @@ namespace MercDevs_ej2.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UsuarioIdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "IdUsuario", servicio.UsuarioIdUsuario);
-            return View(servicio);
+            ViewData["UsuarioIdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "IdUsuario", servicio.IdUsuario);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Servicios/Edit/5
@@ -84,7 +84,7 @@ namespace MercDevs_ej2.Controllers
             {
                 return NotFound();
             }
-            ViewData["UsuarioIdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "IdUsuario", servicio.UsuarioIdUsuario);
+            ViewData["UsuarioIdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "IdUsuario", servicio.IdUsuario);
             return View(servicio);
         }
 
@@ -120,7 +120,7 @@ namespace MercDevs_ej2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UsuarioIdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "IdUsuario", servicio.UsuarioIdUsuario);
+            ViewData["UsuarioIdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "IdUsuario", servicio.IdUsuario);
             return View(servicio);
         }
 

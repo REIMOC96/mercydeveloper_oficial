@@ -2,13 +2,12 @@
 
 @{
     ViewData["Title"] = "Details";
-    Layout = "~/Views/Recepcionequipoes/Index.cshtml";
 }
 
-<h1>Details</h1>
+<h1>Descripcion De Servicio</h1>
 
 <div>
-    <h4>Descripcionservicio</h4>
+    <h4></h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -18,7 +17,7 @@
             @Html.DisplayFor(model => model.Nombre)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ServicioIdServicioNavigation)
+            Id de Servicio
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.ServicioIdServicioNavigation.IdServicio)
@@ -26,6 +25,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.IdDescServ">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.IdDescServ"><button class="btn btn-warning">Guardar</button></a> |
+    <a asp-action="Index"><button class="btn btn-success">Volver a lista</button></a>
 </div>

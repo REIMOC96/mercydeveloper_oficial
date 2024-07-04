@@ -1,9 +1,5 @@
 ﻿@model IEnumerable<MercDevs_ej2.Models.Servicio>
 
-@{
-    ViewData["Title"] = "Index";
-}
-
 <h1>Index Servicios</h1>
 
 <p>
@@ -12,6 +8,7 @@
 <table class="table">
     <thead>
         <tr>
+
             <th>
                 @Html.DisplayNameFor(model => model.Nombre)
             </th>
@@ -30,6 +27,7 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+
             <td>
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>
@@ -40,7 +38,7 @@
                 @Html.DisplayFor(modelItem => item.Sku)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UsuarioIdUsuarioNavigation.IdUsuario)
+                @Html.DisplayFor(modelItem => item.IdUsuario)
             </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.IdServicio"><button type="button" class="btn btn-primary">Editar</button></a>
