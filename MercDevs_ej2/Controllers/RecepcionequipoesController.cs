@@ -131,7 +131,7 @@ namespace MercDevs_ej2.Controllers
                 return NotFound();
             }
              
-            if (ModelState.IsValid)
+            if (id == recepcionequipo.Id)
             {
                 try
                 {
