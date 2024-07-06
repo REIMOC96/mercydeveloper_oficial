@@ -10,33 +10,79 @@ th, td {
   padding: 5px;
   text-align: left;
 }
+.ob{
+  text-align: center;
+}
+.tbh{
+  background-color: rgb(179, 179, 179);
+  text-align: center;
+}
 </style>
 </head>
 <body>
 <!--tabla de datos de usuario-->
 <table>
   <tr>
-    <th colspan="11" style="text-align: center;">Datos de usuario</th>
+    <th colspan="11" class="tbh">Datos de usuario</th>
   </tr>
   <tr>
-  <td></td>
-  <td></td>
-  <td></td>
+  <th colspan="2">Nombre:</th>
+  <th colspan="3">Apellido:</th>
+  <th colspan="6">Celular</th>
   </tr>
   <tr>
+    <th colspan="5">
+      Correo
+    </th>
+    <th colspan="6">Direccion:</th>
+  </tr>
 
-  </tr>
+
+  <!--separacion tabla de datos usuarios - tabla observaciones del usuario -->
+<tr>
+  <th colspan="11"style="background-color:rgb(57, 57, 57);text-align:center"> 
+  <br>
+  <br>
+</th>
+</tr>
+<!-- separador del separador xd-->
+
+<tr>
+  <th colspan="11" class="tbh"> Observaciones Del usuario</th>
+</tr>
+  <th colspan="1" class="ob">N°</th>
+  <th colspan="6" class="ob">Descripcion</th>
+  <th colspan="4" class="ob">Check</th>
+</tr>
+<tr>
+  <th colspan="1"class="ob">1</th>
+  <th colspan="6" class="ob"></th>
+  <th colspan="4"><br></th>
+</tr>
+<tr>
+  <th colspan="1" class="ob">2</th>
+  <th colspan="6"><br></th>
+  <th colspan="4"><br></th>
+</tr>
+<tr>
+  <th colspan="1" class="ob">3</th>
+  <th colspan="6"><br></th>
+  <th colspan="4"><br></th>
+</tr>
+
 <!--separacion de tablas entre las de usuario y las de hardware-->
 
 <tr>
-  <th colspan="11" style="background-color:rgb(139, 133, 133);text-align:center">
-    &nbsp; separacion de tablas&nbsp;</th>
+  <th colspan="11" style="background-color:rgb(57, 57, 57);text-align:center">
+    <br>
+    <br>
+  </th>
 </tr>
  <!--tabla de DATOS DE HARDWARE-->
 
 
   <tr>
-    <th colspan="11" style="text-align: center;" >Datos del Hardware</th>
+    <th colspan="11" class="tbh">Datos del Hardware</th>
   </tr>
   <tr>
     <th>Tipo</th>
@@ -70,7 +116,7 @@ th, td {
   </tr>
   <tr>
     <tr>
-      <th>A</th>
+      <th><br></th>
     </tr>
   <tr>
     <th rowspan="3">Almacenamiento</th>
@@ -89,11 +135,211 @@ th, td {
 </tr>
 <tr>
   <tr>
-    <th colspan="3" rowspan="2">P. Madre:</th>
+    <th colspan="4" rowspan="1">P. Madre:</th>
   </tr>
 </tr>
+<!--separacion-->
+<tr>
+  <th colspan="11" style="background-color:rgb(57, 57, 57);text-align:center">
+    <br>
+    <br>
+  </th>
+</tr>
+<!--separacion-->
+<tr>
+  <th colspan="11" class="tbh">Datos Software inicial</th>
+</tr>
+  <th colspan="1" >Sistema operativo</th>
+  <th colspan="4" >Windows:</th>
+  <th colspan="6" >Linux:</th>
+</tr>
+<tr>
+  <th colspan="1" >Software instalado</th>
+  <th colspan="2" >M. Office:</th>
+  <th colspan="2"> Navegador</th>
+  <th colspan="3" >Lector PDF</th>
+  <th colspan="3">Compresor</th>
+</tr>
+<tr>
+  <th rowspan="1">Inconvenientes:</th>
+  <th colspan="10"> 
+    <br>
+    <br>
+    <br>
+    <br>
+  </th>
+</tr>
 
+<!--separador de tablas magico :D-->
+<tr>
+  <th colspan="11" style="background-color:rgb(57, 57, 57);text-align:center">
+    <br>
+    <br>
+  </th>
+</tr>
+<!-- end of separador de tablas magico :D-->
+<tr>
+  <th colspan="11" class="tbh">Datos Software Final
+  </th>
+</tr>
+<tr>
+  <th colspan="2" class="ob">S.O instalado</th>
+  <th colspan="2" class="ob">Win 10</th>
+  <th colspan="2"class="ob">Win 11</th>
+  <th colspan="7"> Linux:</th>
+</tr>
+<tr>
+  <th colspan="2" rowspan="5" class="ob">Herramientas de Oficina</th>
+  <th colspan="5" class="ob">Microsoft Office</th>
+  <th colspan="4" class="ob">Libre office</th>
+</tr>
+<tr >
+  <th colspan="2" class="ob">2013</th>
+  <th colspan="1" class="ob">2019</th>
+  <th colspan="2" class="ob">365</th>
+  <th colspan="2">24.+</th>
+  <th colspan="4">7.+</th>
+</tr>
+<tr>
+  <th colspan="3" class="ob">Adobe PDF</th>
+  <th colspan="2" class="ob">Nitro</th>
+  <th colspan="2">Winrar</th>
+</tr>
+<tr>
+  <th colspan="9" class="ob">Navegadores Web</th>
+</tr>
+<tr>
+  <th colspan="3" class="ob">Chrome</th>
+  <th colspan="2" class="ob">Firefox</th>
+  <th colspan="2">Opera</th>
+  <th colspan="2">Safari</th>
+</tr>
+<tr>
+  <th colspan="2">Antivirus:</th>
+</tr>
+<tr>
+  <!--separador  magico :D-->
+  <tr>
+    <th colspan="11" style="background-color:rgb(57, 57, 57);text-align:center">
+      <br>
+      <br>
+    </th>
+  </tr>
+  <!--final separador magico :D-->
+  <th colspan="11" class="tbh" > Diagnóstico</th>
+</tr>
+  <th colspan="1" class="ob">N°</th>
+  <th colspan="6" class="ob">Descripción</th>
+  <th colspan="4" class="ob">Tiempo</th>
+</tr>
+<tr>
+  <th colspan="1"class="ob">1</th>
+  <th colspan="6" class="ob"></th>
+  <th colspan="4"><br></th>
+</tr>
+<tr>
+  <th colspan="1" class="ob">2</th>
+  <th colspan="6"><br></th>
+  <th colspan="4"><br></th>
+</tr>
+<tr>
+  <th colspan="1" class="ob">3</th>
+  <th colspan="6"><br></th>
+  <th colspan="4"><br></th>
+</tr>
+  <!--separador  magico :D-->
+  <tr>
+    <th colspan="11" style="background-color:rgb(57, 57, 57);text-align:center">
+      <br>
+      <br>
+    </th>
+  </tr>
+  <!--final separador magico :D-->
+  <th colspan="11" class="tbh" > Diagnóstico</th>
+</tr>
+  <th colspan="1" class="ob">N°</th>
+  <th colspan="6" class="ob">Descripción</th>
+  <th colspan="4" class="ob">Tiempo</th>
+</tr>
+<tr>
+  <th colspan="1"class="ob">1</th>
+  <th colspan="6" class="ob"></th>
+  <th colspan="4"><br></th>
+</tr>
+<tr>
+  <th colspan="1" class="ob">2</th>
+  <th colspan="6"><br></th>
+  <th colspan="4"><br></th>
+</tr>
+<tr>
+  <th colspan="1" class="ob">3</th>
+  <th colspan="6"><br></th>
+  <th colspan="4"><br></th>
+</tr>
+<tr>
+  <th colspan="1" class="ob">4</th> class="ob"
+  <th colspan="6"></th>
+  <th colspan="5"></th>
+</tr>
+<!--separacion magica-->
+<tr>
+  <th colspan="11" style="background-color:rgb(57, 57, 57);text-align:center">
+    <br>
+    <br>
+  </th>
+</tr>
+<!--separacion magica-->
+<th colspan="11" class="tbh" > Soluciones y/o Intervenciones realizadas</th>
+</tr>
+  <th colspan="1" class="ob">N°</th>
+  <th colspan="6" class="ob">Descripción</th>
+  <th colspan="4" class="ob">Tiempo</th>
+</tr>
+<tr>
+  <th colspan="1"class="ob">1</th>
+  <th colspan="6" class="ob"></th>
+  <th colspan="4"><br></th>
+</tr>
+<tr>
+  <th colspan="1" class="ob">2</th>
+  <th colspan="6"><br></th>
+  <th colspan="4"><br></th>
+</tr>
+<tr>
+  <th colspan="1" class="ob">3</th>
+  <th colspan="6"><br></th>
+  <th colspan="4"><br></th>
+</tr>
+<tr>
+  <th colspan="1" class="ob">4</th> class="ob"
+  <th colspan="6"></th>
+  <th colspan="5"></th>
+</tr>
+<tr>
+  <th colspan="1" class="ob">5</th>
+  <th colspan="6"></th>
+  <th colspan="5"></th>
+</tr>
+<tr>
+  <th colspan="1" class="ob">6</th>
+  <th colspan="6"></th>
+  <th colspan="5"></th>
+</tr>
+<!--separacion magica-->
+<tr>
+  <th colspan="11" style="background-color:rgb(57, 57, 57);text-align:center">
+    <br>
+    <br>
+  </th>
+</tr>
+<!--separacion magica-->
+
+<tr>
+  <th colspan="11" class="tbh">Observaciones o Recomendaciones</th>
+</tr>
+<tr>
+<th colspan="11"><br><br><br><br><br><br><br><br><br><br><br></th>
+</tr>
 </table>
-
 </body>
 </html>
