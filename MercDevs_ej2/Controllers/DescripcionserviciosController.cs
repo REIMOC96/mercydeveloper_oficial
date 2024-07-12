@@ -166,11 +166,11 @@ namespace MercDevs_ej2.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        public async Task<IActionResult> descServ(int id, Descripcionservicio descripcionservicio)
+        public async Task<IActionResult> DescServ(int id, Descripcionservicio descripcionservicio)
 
         {
             var desc = await _context.Descripcionservicios
-                                       .Where(e => e.IdServicio == id)
+                                       .Where(d => d.IdServicio == id)
                                        .ToListAsync();
             Console.WriteLine(desc);
             return View(desc);
