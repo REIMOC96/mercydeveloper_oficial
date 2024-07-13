@@ -1,0 +1,80 @@
+﻿@model MercDevs_ej2.Models.Datosfichatecnica
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+<div>
+    <h4>Datosfichatecnica</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Fecha de Inicio
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaInicio)
+        </dd>
+        <dt class = "col-sm-2">
+            Fecha de Finalizacion
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaFinalizacion)
+        </dd>
+        <dt class = "col-sm-2">
+            P.Observacion/Recomendaciones
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PobservacionRecomendaciones)
+        </dd>
+        <dt class = "col-sm-2">
+            S.O. Instalado
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Soinstalado)
+        </dd>
+        <dt class = "col-sm-2">
+            Suite Office Instalado
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SuiteOfficeInstalada)
+        </dd>
+        <dt class = "col-sm-2">
+            Lector PDF. Instalado
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LectorPdfinstalado)
+        </dd>
+        <dt class = "col-sm-2">
+            Navegador Web Instalado
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NavegadorWebInstalado)
+        </dd>
+        <dt class = "col-sm-2">
+            Antivirus Instaldo
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AntivirusInstalado)
+        </dd>
+        <dt class = "col-sm-2">
+            Id de Recepcion
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RecepcionEquipo.Id)
+        </dd>
+    </dl>
+</div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.IdFichaTecnica"><button class="btn btn-warning">Editar</button></a> |
+        <a asp-action="Index"><button class="btn btn-secondary">Volver a listado</button></a>
+    </div>
+</body>
+</html>

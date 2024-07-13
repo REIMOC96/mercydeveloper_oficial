@@ -21,7 +21,7 @@ namespace MercDevs_ej2.Controllers
         // GET: Descripcionservicios
         public async Task<IActionResult> Index()
         {
-            var mercydevsEjercicio2Context = _context.Descripcionservicios.Include(d => d.ServicioIdServicioNavigation);
+            var mercydevsEjercicio2Context = _context.Descripcionservicios.Include(d => d.IdServicioNavigation);
             return View(await mercydevsEjercicio2Context.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace MercDevs_ej2.Controllers
             }
 
             var descripcionservicio = await _context.Descripcionservicios
-                .Include(d => d.ServicioIdServicioNavigation)
+                .Include(d => d.IdServicioNavigation)
                 .FirstOrDefaultAsync(m => m.IdDescServ == id);
             if (descripcionservicio == null)
             {
@@ -111,22 +111,10 @@ namespace MercDevs_ej2.Controllers
 
             if (descripcionservicio.IdDescServ == id)
             {
-                try
-                {
+
                     _context.Update(descripcionservicio);
                     await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!DescripcionservicioExists(descripcionservicio.IdDescServ))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ServicioIdServicio"] = new SelectList(_context.Servicios, "IdServicio", "IdServicio", descripcionservicio.IdServicio);
@@ -142,7 +130,7 @@ namespace MercDevs_ej2.Controllers
             }
 
             var descripcionservicio = await _context.Descripcionservicios
-                .Include(d => d.ServicioIdServicioNavigation)
+                .Include(d => d.IdServicioNavigation)
                 .FirstOrDefaultAsync(m => m.IdDescServ == id);
             if (descripcionservicio == null)
             {

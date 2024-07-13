@@ -1,0 +1,82 @@
+﻿@model MercDevs_ej2.Models.Datosfichatecnica
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
+<h4>Datosfichatecnica</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdFichaTecnica" />
+            <div class="form-group">
+                <label asp-for="FechaInicio" class="control-label"></label>
+                <input asp-for="FechaInicio" class="form-control" />
+                <span asp-validation-for="FechaInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaFinalizacion" class="control-label"></label>
+                <input asp-for="FechaFinalizacion" class="form-control" />
+                <span asp-validation-for="FechaFinalizacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PobservacionRecomendaciones" class="control-label"></label>
+                <input asp-for="PobservacionRecomendaciones" class="form-control" />
+                <span asp-validation-for="PobservacionRecomendaciones" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Soinstalado" class="control-label"></label>
+                <input asp-for="Soinstalado" class="form-control" />
+                <span asp-validation-for="Soinstalado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SuiteOfficeInstalada" class="control-label"></label>
+                <input asp-for="SuiteOfficeInstalada" class="form-control" />
+                <span asp-validation-for="SuiteOfficeInstalada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LectorPdfinstalado" class="control-label"></label>
+                <input asp-for="LectorPdfinstalado" class="form-control" />
+                <span asp-validation-for="LectorPdfinstalado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NavegadorWebInstalado" class="control-label"></label>
+                <input asp-for="NavegadorWebInstalado" class="form-control" />
+                <span asp-validation-for="NavegadorWebInstalado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AntivirusInstalado" class="control-label"></label>
+                <input asp-for="AntivirusInstalado" class="form-control" />
+                <span asp-validation-for="AntivirusInstalado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RecepcionEquipoId" class="control-label"></label>
+                <select asp-for="RecepcionEquipoId" class="form-control" asp-items="ViewBag.RecepcionEquipoId"></select>
+                <span asp-validation-for="RecepcionEquipoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                    <input type="submit" value="Guardar" class="btn btn-warning" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+        <a asp-action="Index"><button class="btn btn-secondary">volver a la lista</button></a>
+    </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</body>
+</html>

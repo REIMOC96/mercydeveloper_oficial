@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Scaffolding.Internal;
 
-namespace MercDevs_ej2.Models;
+namespace MercDevs_ej2.MercydevsEjercicio2;
 
-public partial class MercydevsEjercicio2Context : DbContext
+public partial class MercyDeveloperContext : DbContext
 {
-    public MercydevsEjercicio2Context()
+    public MercyDeveloperContext()
     {
     }
 
-    public MercydevsEjercicio2Context(DbContextOptions<MercydevsEjercicio2Context> options)
+    public MercyDeveloperContext(DbContextOptions<MercyDeveloperContext> options)
         : base(options)
     {
     }
@@ -34,7 +34,9 @@ public partial class MercydevsEjercicio2Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        if (!optionsBuilder.IsConfigured) { 
+        if (!optionsBuilder.IsConfigured)
+        {
+
         }
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -69,7 +71,6 @@ public partial class MercydevsEjercicio2Context : DbContext
             entity.HasIndex(e => e.RecepcionEquipoId, "fk_DatosFichaTecnica_RecepcionEquipo1_idx");
 
             entity.Property(e => e.IdFichaTecnica)
-                .ValueGeneratedNever()
                 .HasColumnType("int(11)")
                 .HasColumnName("idFichaTecnica");
             entity.Property(e => e.AntivirusInstalado).HasMaxLength(100);
@@ -118,32 +119,27 @@ public partial class MercydevsEjercicio2Context : DbContext
 
         modelBuilder.Entity<Diagnosticosolucion>(entity =>
         {
-            entity.HasKey(e => e.IdDiagnosticoSolucion);
+            entity.HasKey(e => e.IdDiagnosticoSolucion).HasName("PRIMARY");
+
             entity.ToTable("diagnosticosolucion");
 
             entity.HasIndex(e => e.IdFichaTecnica, "fk_DiagnosticoSolucion_DatosFichaTecnica1_idx");
 
             entity.Property(e => e.IdDiagnosticoSolucion)
+                .ValueGeneratedNever()
                 .HasColumnType("int(11)")
                 .HasColumnName("idDiagnosticoSolucion");
-
+            entity.Property(e => e.DescripcionDiagnostico).HasMaxLength(1000);
+            entity.Property(e => e.DescripcionSolucion).HasMaxLength(1000);
             entity.Property(e => e.IdFichaTecnica)
-                .HasColumnType("int(11)")
-                .HasColumnName("idFichaTecnica");
+                .ValueGeneratedOnAdd()
+                .HasColumnType("int(11)");
 
-            entity.Property(e => e.DescripcionDiagnostico)
-                .HasMaxLength(1000);
-
-            entity.Property(e => e.DescripcionSolucion)
-                .HasMaxLength(1000);
-
-            entity.HasOne(d => d.IdFichaTecnicaNavigation)
-                .WithMany(p => p.Diagnosticosolucions)
+            entity.HasOne(d => d.IdFichaTecnicaNavigation).WithMany(p => p.Diagnosticosolucions)
                 .HasForeignKey(d => d.IdFichaTecnica)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_DiagnosticoSolucion_DatosFichaTecnica1");
         });
-
 
         modelBuilder.Entity<Efmigrationshistory>(entity =>
         {

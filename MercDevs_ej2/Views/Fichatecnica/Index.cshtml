@@ -1,0 +1,100 @@
+﻿@model IEnumerable<MercDevs_ej2.Models.Datosfichatecnica>
+
+<!--    #
+por alguna razon genero esta vista con layout null XD
+
+{ Layout = null;} -->
+@{
+    ViewData["Title"] = "Index";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+        <a asp-action="Create">
+            <button type="button" class="btn btn-success ">Crear Ficha</button>
+        </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Fecha de Inicio
+            </th>
+            <th>
+                Fecha Termino
+            </th>
+            <th>
+                Observaciones/Recomendaciones
+            </th>
+            <th>
+                Sistema Operativo
+            </th>
+            <th>
+                Office instalado
+            </th>
+            <th>
+                lector PDF
+            </th>
+            <th>
+               Nav.Web
+            </th>
+            <th>
+                Antivirus
+            </th>
+            <th>
+               Id Recepcion de Equipo
+            </th>
+            <th colspan="3">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaFinalizacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PobservacionRecomendaciones)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soinstalado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SuiteOfficeInstalada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LectorPdfinstalado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NavegadorWebInstalado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AntivirusInstalado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecepcionEquipo.Id)
+            </td>
+            <td>
+                        <a asp-action="Edit" asp-route-id="@item.IdFichaTecnica"><button type="button" class="btn btn-primary">Editar</button></a>
+                    </td>
+            <td>
+                        <a asp-action="Details" asp-route-id="@item.IdFichaTecnica"><button type="button" class="btn btn-info">Detalles</button></a>
+                    </td>
+              <td>
+                        <a asp-action="Delete" asp-route-id="@item.IdFichaTecnica"><button type="button" class="btn btn-danger">Borrar</button></a>
+                    </td>
+            </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

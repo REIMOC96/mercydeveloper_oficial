@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="~/MercDevs_ej2.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
+    <header class="navar">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
@@ -61,6 +61,17 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Descripcionservicios" asp-action="Index">Descripcion servicios</a>
                         </li>
                         <div class="vr"></div>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Fichatecnica" asp-action="Index">Ficha tecnica</a>
+                        </li>
+                        <div class="vr"></div>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Diagnosticos" asp-action="Index">Diagnostico</a>
+                        </li>
+                        <div class="vr"></div>
+
 
 
                             @if (User.Identity!.IsAuthenticated){

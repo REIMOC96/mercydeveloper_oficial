@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MercDevs_ej2.Models;
+namespace MercDevs_ej2.MercydevsEjercicio2;
 
 public partial class Recepcionequipo
 {

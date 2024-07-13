@@ -37,7 +37,7 @@ namespace MercDevs_ej2.Controllers
             }
 
             var servicio = await _context.Servicios
-                .Include(s => s.UsuarioIdUsuarioNavigation)
+                .Include(s => s.IdUsuarioNavigation)
                 .FirstOrDefaultAsync(m => m.IdServicio == id);
             if (servicio == null)
             {
@@ -133,7 +133,7 @@ namespace MercDevs_ej2.Controllers
             }
 
             var servicio = await _context.Servicios
-                .Include(s => s.UsuarioIdUsuarioNavigation)
+                .Include(s => s.IdUsuarioNavigation)
                 .FirstOrDefaultAsync(m => m.IdServicio == id);
             if (servicio == null)
             {

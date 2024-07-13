@@ -28,7 +28,7 @@
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ServicioIdServicioNavigation.IdServicio)
+                @Html.DisplayFor(modelItem => item.IdServicioNavigation.IdServicio)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.IdDescServ"><button type="button" class="btn btn-warning">Editar</button></a> |
