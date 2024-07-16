@@ -51,6 +51,7 @@ por alguna razon genero esta vista con layout null XD
                Id Recepcion de Equipo
             </th>
             <th colspan="3">Acciones</th>
+            <td></td>
         </tr>
     </thead>
     <tbody>
@@ -92,6 +93,10 @@ por alguna razon genero esta vista con layout null XD
               <td>
                         <a asp-action="Delete" asp-route-id="@item.IdFichaTecnica"><button type="button" class="btn btn-danger">Borrar</button></a>
                     </td>
+                <td>
+                        <a asp-controller="Diagnosticos" asp-action="DiagnosticoFicha" asp-route-id="@item.IdFichaTecnica"><button type="button" class="btn btn-info">Ver&nbsp;Diagnostico</button></a>
+
+                </td>
             </tr>
 }
     </tbody>

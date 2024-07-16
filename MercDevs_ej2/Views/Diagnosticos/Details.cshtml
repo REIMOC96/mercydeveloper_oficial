@@ -13,23 +13,23 @@
 <body>
 
 <div>
-    <h4>Diagnosticosolucion</h4>
+    <h4>Diagnostico / Solucion</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DescripcionDiagnostico)
+            Descripcion de Solucion
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.DescripcionDiagnostico)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DescripcionSolucion)
+            Descripcion de Servicio
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.DescripcionSolucion)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdFichaTecnicaNavigation)
+            Id de Ficha Tecnica
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.IdFichaTecnicaNavigation.IdFichaTecnica)
@@ -37,8 +37,9 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+        <a href="@Url.Action("Edit", "Fichatecnica", new { id = Model.IdFichaTecnica })" class="btn btn-primary">Editar</a>
+        <a asp-action="Index"><button class="btn btn-secondary">volver a la lista</button></a>
+    </div>
 </body>
 </html>

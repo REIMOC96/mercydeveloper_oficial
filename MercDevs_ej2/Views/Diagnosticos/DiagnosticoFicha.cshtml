@@ -1,0 +1,71 @@
+﻿@model IEnumerable<MercDevs_ej2.Models.Diagnosticosolucion>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+   @if (Model != null && Model.Any())
+    {
+<body>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Descripcion Diagnostico
+                </th>
+                <th>
+                    Descripcion Solucion
+                </th>
+                <th>
+                    Id Ficha Tecnica
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DescripcionDiagnostico)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DescripcionSolucion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdFichaTecnicaNavigation.IdFichaTecnica)
+                    </td>
+                    <td>
+                        <a asp-controller="Diagnosticos" asp-action="Edit" asp-route-id="@item.IdDiagnosticoSolucion"><button type="button" class="btn btn-warning">Editar</button></a> |
+                            <a asp-controller="Diagnosticos" asp-action="Details" asp-route-id="@item.IdDiagnosticoSolucion"> <button type="button" class="btn btn-info">Detalles</button></a> |
+                            <a asp-controller="Diagnosticos" asp-action="Delete" asp-route-id="@item.IdDiagnosticoSolucion"><button type="button" class="btn btn-danger">Borrar</button></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </body>
+
+}
+else
+{
+
+    <h2>No hay Diagnostico para mostrar 😔</h2>
+
+    <p>
+        <a asp-action="Create">
+            <button type="button" class="btn btn-success ">Crear Diagnostico</button>
+        </a>
+    </p>
+}
+
+
+</html>

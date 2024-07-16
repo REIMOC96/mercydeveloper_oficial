@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MercDevs_ej2.Models;
+using System.Data.SqlTypes;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace MercDevs_ej2.Controllers
 {
@@ -149,6 +151,12 @@ namespace MercDevs_ej2.Controllers
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> DiagnosticoFicha(int id)
+        {
+            var FichaDiag = await _context.Diagnosticosolucions.Where(e => e.IdFichaTecnica == id).ToListAsync();
+
+            return View(FichaDiag);
         }
 
         private bool DiagnosticosolucionExists(int id)

@@ -1,18 +1,18 @@
 ﻿@model MercDevs_ej2.Models.Datosfichatecnica
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Ficha";
 }
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
+    <title>Editar-Ficha</title>
 </head>
 <body>
 
-<h4>Datosfichatecnica</h4>
+<h4>Datos de Ficha Tecnica</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -20,47 +20,47 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="IdFichaTecnica" />
             <div class="form-group">
-                <label asp-for="FechaInicio" class="control-label"></label>
+                    <label asp-for="FechaInicio" class="control-label">Fecha Inicio</label>
                 <input asp-for="FechaInicio" class="form-control" />
                 <span asp-validation-for="FechaInicio" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FechaFinalizacion" class="control-label"></label>
+                <label asp-for="FechaFinalizacion" class="control-label">Fecha Finalizacion</label>
                 <input asp-for="FechaFinalizacion" class="form-control" />
                 <span asp-validation-for="FechaFinalizacion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PobservacionRecomendaciones" class="control-label"></label>
+                <label asp-for="PobservacionRecomendaciones" class="control-label">P.Observacion / Recomendacion</label>
                 <input asp-for="PobservacionRecomendaciones" class="form-control" />
                 <span asp-validation-for="PobservacionRecomendaciones" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Soinstalado" class="control-label"></label>
+                <label asp-for="Soinstalado" class="control-label">S. Operativo instalado</label>
                 <input asp-for="Soinstalado" class="form-control" />
                 <span asp-validation-for="Soinstalado" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SuiteOfficeInstalada" class="control-label"></label>
+                <label asp-for="SuiteOfficeInstalada" class="control-label">Suite Office</label>
                 <input asp-for="SuiteOfficeInstalada" class="form-control" />
                 <span asp-validation-for="SuiteOfficeInstalada" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="LectorPdfinstalado" class="control-label"></label>
+                <label asp-for="LectorPdfinstalado" class="control-label">Lector PDF Instalado</label>
                 <input asp-for="LectorPdfinstalado" class="form-control" />
                 <span asp-validation-for="LectorPdfinstalado" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NavegadorWebInstalado" class="control-label"></label>
+                <label asp-for="NavegadorWebInstalado" class="control-label">Navegador Instalado</label>
                 <input asp-for="NavegadorWebInstalado" class="form-control" />
                 <span asp-validation-for="NavegadorWebInstalado" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AntivirusInstalado" class="control-label"></label>
+                <label asp-for="AntivirusInstalado" class="control-label">Antivirus instalado</label>
                 <input asp-for="AntivirusInstalado" class="form-control" />
                 <span asp-validation-for="AntivirusInstalado" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RecepcionEquipoId" class="control-label"></label>
+                <label asp-for="RecepcionEquipoId" class="control-label">Id De Recepcion</label>
                 <select asp-for="RecepcionEquipoId" class="form-control" asp-items="ViewBag.RecepcionEquipoId"></select>
                 <span asp-validation-for="RecepcionEquipoId" class="text-danger"></span>
             </div>

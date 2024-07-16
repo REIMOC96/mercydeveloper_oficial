@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using MercDevs_ej2.ViewModel;
 
 namespace MercDevs_ej2.Controllers
 {
@@ -24,9 +25,19 @@ namespace MercDevs_ej2.Controllers
         {
             var equipos = await _context.Recepcionequipos
                                         .Where(e => e.Estado != 0)
+                                        .Include(e => e.IdClienteNavigation)
+                                        .Include(e => e.IdServicioNavigation)
+                                        .Select(e => new EquipoClienteViewModel
+                                        {
+                                            Equipo = e,
+                                            ClienteNombre = e.IdClienteNavigation.Nombre,
+                                            ServicioNombre = e.IdServicioNavigation.Nombre
+                                        })
                                         .ToListAsync();
+
             return View(equipos);
         }
+
 
         public IActionResult Privacy()
         {

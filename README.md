@@ -114,26 +114,39 @@ Este proyecto está bajo la Licencia _FREE_ - mira el archivo [LICENSE.md](LICEN
 
 
 ## Actualizaciones Recientes 🚀🚀
-### Version 1.1.2 (14-07-2024)
-- Se arreglaron muuuchos bugs
-- Se agrego un boton de completar la recepcion que atualiza el estado a 0
-- se arreglaron todas las funciones, poner mas ojo
-- se agrego las descripciones de servicios por servicio.
+### Version 1.1.6 (15-07-2024)
+- se avanzo hasta la etapa 6 de desarrollo, adjunto el documento: https://classroom.google.com/u/2/c/Njc4ODQ0NzkzOTAx/a/Njk4NDQ3NTA3NDY4/details
+- aun no se implementa la ficha tecnica, pero se tiene en los documentos del proyecto, falta crear un modelo para este  y ver como iterar los datos
+- se actualizo la BBDD para cumplir con los nuevos requerimientos
+-  boton de ir a detalle en la tabla que muestra las recepciones activas
+- se agrego boton de completar Recepcion, con una vista de confirmacion
+- Se muestra el nombre del cliente y del servicio en la tabla de recepciones activas
+- Se hizo un enlace en la vista de recepciones activas para ir al detalle del cliente y del servicio respectivo a cada registro
+- se crearon crud de diagnosticos  && ficha tecnica, y se fixearon los detalles de crear cada dato y editar cada dato
+
+### observaciones 1.1.6
+- se requiere un mejor control de errores, no se puede borar un registro que tiene un registro como llave foranea, controlar ese detalle
+- extendere el tiempo de login de la pagina, para poder mantenerla abierta mas tiempo
+- traduccion de todos los textos
+- botones bootsrap para cada cosa (borra  detales editar y funciones propias en botones)
+- hare un listado de cosas para tornar el proyecto mucho mas real,adjuntare el documento, pero aun no tiene nada: https://docs.google.com/document/d/1mTL_RL3zokZh1DXjTdPQ-DtceRCq1JuxfgE8Yje4YL8/edit
 
 
-### observaciones 1.1.2
-- se requiere pasar a la fase 4 del desarrollo durante el fin de semana o durante los proximos dias
-- se agregara un boton llamdo ficha tecnica, sera la construccion de un controlador usando mas de un modelo,
-  la idea es poder llamar los datos y los registros de toda la recepcion de equipo y  mostrar los respectivos datos de cada tabla,
-  osea el nombre de clietne el nombre de cliente, datos del pc, las descripciones de los servicios etc (basicamente toda la BBDD)
-  Estado actual en la Fase 4 de desarrollo por empezar.
-
-- ver documento U3 - L1 classroom : https://classroom.google.com/u/2/c/Njc4ODQ0NzkzOTAx/a/Njk3MjI5MTQyMTY4/details 
+extras:
+- etapas completas antes de esta actualizacion (omitiendo la ficha tecnica) https://docs.google.com/document/d/1Nh5RZVnCjYv-pK0wqIWSN2655xOvgOVT/edit
+- Actualizaciones de readme y de proyecto por **Reinaldo Ordoñez**, github [REIMOC96](https://github.com/REIMOC96)
+- informacion y requerimientos enviados por **Edgardo Cayo**, github: [cayocft](https://github.com/cayocft)  
 
 ## *----------------------------------------------------------------------------------------------------------*
 
 
 # old fixes🛠️🛠️
+
+### Version 1.1.2 (14-07-2024)
+- Se arreglaron muuuchos bugs
+- Se agrego un boton de completar la recepcion que atualiza el estado a 0
+- se arreglaron todas las funciones, poner mas ojo
+- se agrego las descripciones de servicios por servicio.
 
 ### Version 1.1.1 (13-06-2024)
 - Se agrego contenido al index de home segun requerimientos de la pauta
